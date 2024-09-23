@@ -37,11 +37,19 @@ public class Pawn implements Piece {
     var allowedMoves = new ArrayList<Move>();
     if (getColour().equals(PlayerColour.WHITE)) {
       allowedMoves.add(new Move(from, from.plus(-1, 0)));
+      // Allow to move 2 if not moved
+      if (from.getRow() == 6){
+        allowedMoves.add(new Move(from, from.plus(-2, 0)));
+      }
     } else {
       allowedMoves.add(new Move(from, from.plus(1, 0)));
+      // Allow to move 2 if not moved
+      if (from.getRow() == 1){
+        allowedMoves.add(new Move(from, from.plus(2, 0)));
+      }
     }
 
     // TODO Implement this!
-    return List.of();
+    return allowedMoves;
   }
 }
