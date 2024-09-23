@@ -43,13 +43,27 @@ public class Pawn implements Piece {
       if ((from.getRow() == 6) && (board.get(from.plus(-2,0)) == null)){
         allowedMoves.add(new Move(from, from.plus(-2, 0)));
       }
-    } else {
+      if ((from.getRow() > 0 ) && (board.get(from.plus(-1,-1))) != null) {
+        allowedMoves.add(new Move(from, from.plus(-1, -1)));
+      }
+      if ((from.getRow() > 0 ) && (board.get(from.plus(-1,1))) != null) {
+        allowedMoves.add(new Move(from, from.plus(-1, 1)));
+      }
+    }
+
+    else {
       if ((from.getRow() < 7 ) && (board.get(from.plus(1,0)) == null)) {
         allowedMoves.add(new Move(from, from.plus(1, 0)));
       }
       // Allow to move 2 if not moved
       if ((from.getRow() == 1) && (board.get(from.plus(2,0)) == null)){
         allowedMoves.add(new Move(from, from.plus(2, 0)));
+      }
+      if ((from.getRow() < 7 ) && (board.get(from.plus(1,-1))) != null) {
+        allowedMoves.add(new Move(from, from.plus(1, -1)));
+      }
+      if ((from.getRow() < 7 ) && (board.get(from.plus(1,1))) != null) {
+        allowedMoves.add(new Move(from, from.plus(1, 1)));
       }
     }
 
