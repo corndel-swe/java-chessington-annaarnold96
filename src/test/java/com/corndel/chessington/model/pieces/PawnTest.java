@@ -271,7 +271,6 @@ public class PawnTest {
     assertThat(moves).doesNotContain(new Move(pawnCoords, otherDiagonal));
   }
 
-
   @Test
   public void blackPawnsCannotMoveDiagonallyNotToCapture() {
     // Arrange
