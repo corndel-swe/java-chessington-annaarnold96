@@ -59,7 +59,7 @@ public class RookTest {
     assertThat(allowedMoves).doesNotContain(new Move(coords, coords));
   }
 
-  @Disabled
+
   @Test
   public void rookCanMoveVertically() {
     // Arrange
