@@ -65,11 +65,8 @@ public class Board {
     return (from.getRow() >= 0 && from.getRow() <= 7) && (from.getCol() >= 0 && from.getCol() <= 7);
   }
   // Checks if current piece would move off the top/bottom board
-  public boolean wouldMoveOffBoardVertically(Coordinates from, Board board, PlayerColour colour){
-  if ((colour.equals(PlayerColour.WHITE))){
-    return (from.getRow() - 1 < 0);
-  }
-  else return (from.getRow() + 1 > 7);
+  public boolean wouldMoveOffBoardVertically(Coordinates from, Board board){
+    return (from.getRow() - 1 < 0) || (from.getRow() + 1 > 7);
 }
 
   public boolean wouldMoveOffBoardHorizontally(Coordinates from, Board board, PlayerColour colour){

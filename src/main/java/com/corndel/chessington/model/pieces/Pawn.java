@@ -20,7 +20,7 @@ public class Pawn extends AbstractPiece implements Piece {
   public List<Move> getAllowedMoves(Coordinates from, Board board) {
     var allowedMoves = new ArrayList<Move>();
     if ((getColour().equals(PlayerColour.WHITE))) {
-      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board, colour)) && (board.get(from.plus(-1,0)) == null)) {
+      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board)) && (board.get(from.plus(-1,0)) == null)) {
         allowedMoves.add(new Move(from, from.plus(-1, 0)));
 
         // Allow to move 2 if not moved
@@ -30,16 +30,16 @@ public class Pawn extends AbstractPiece implements Piece {
       }
 
 
-      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board,colour)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(-1,-1))) != null && board.get(from.plus(-1,-1)).getColour().equals(PlayerColour.BLACK)) {
+      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(-1,-1))) != null && board.get(from.plus(-1,-1)).getColour().equals(PlayerColour.BLACK)) {
         allowedMoves.add(new Move(from, from.plus(-1, -1)));
       }
-      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board,colour)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(-1,1))) != null && board.get(from.plus(-1,1)).getColour().equals(PlayerColour.BLACK)) {
+      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(-1,1))) != null && board.get(from.plus(-1,1)).getColour().equals(PlayerColour.BLACK)) {
         allowedMoves.add(new Move(from, from.plus(-1, 1)));
       }
     }
 
     else {
-      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board, colour)) && (board.get(from.plus(1,0)) == null)) {
+      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board)) && (board.get(from.plus(1,0)) == null)) {
         allowedMoves.add(new Move(from, from.plus(1, 0)));
 
         // Allow to move 2 if not moved
@@ -48,10 +48,10 @@ public class Pawn extends AbstractPiece implements Piece {
       }
 
       }
-      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board,colour)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(1,-1))) != null && board.get(from.plus(1,-1)).getColour().equals(PlayerColour.WHITE)) {
+      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(1,-1))) != null && board.get(from.plus(1,-1)).getColour().equals(PlayerColour.WHITE)) {
         allowedMoves.add(new Move(from, from.plus(1, -1)));
       }
-      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board, colour)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(1,1))) != null && board.get(from.plus(1,1)).getColour().equals(PlayerColour.WHITE)) {
+      if (board.isOnBoard(from, board) && (!board.wouldMoveOffBoardVertically(from, board)) && (!board.wouldMoveOffBoardHorizontally(from, board,colour)) && (board.get(from.plus(1,1))) != null && board.get(from.plus(1,1)).getColour().equals(PlayerColour.WHITE)) {
         allowedMoves.add(new Move(from, from.plus(1, 1)));
       }
     }

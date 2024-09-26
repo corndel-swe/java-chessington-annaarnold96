@@ -6,5 +6,10 @@ public class Maths {
     public static double max(double a, double b){
         return  Math.max(a, b);
         }
+
+    public static double round(double a){
+        return Math.round(a);
+    }
+
     }
 

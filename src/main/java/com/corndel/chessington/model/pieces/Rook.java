@@ -39,31 +39,29 @@ public class Rook extends AbstractPiece implements Piece {
     // TODO Implement this!
     var allowedMoves = new ArrayList<Move>();
     // For every row, check if there is anything. If null, add move. If false, break.
-    if ((getColour().equals(PlayerColour.WHITE))) {
-      for (int row = from.getRow()+1; row <= 7; row++) {
-        int spacesCanMove = 0;
-        if (board.get(from.plus(row,0)) == null){
-          spacesCanMove++;
-          allowedMoves.add(new Move(from, from.plus(spacesCanMove, 0)));
-        }
-        else break;
+
+    // Move down
+      int spacesCanMoveDown = 1;
+    if (board.wouldMoveOffBoardVertically(from, board)) {
+      for (int row = from.getRow() + 1; row <= 7; row++) {
+        if (board.isOnBoard(from.plus(1, 0), board) && board.get(from.plus(row, 0)) == null) {
+          allowedMoves.add(new Move(from, from.plus(spacesCanMoveDown, 0)));
+          spacesCanMoveDown++;
+        } else break;
       }
-
-
-    }
-    else{
-      for (int row = from.getRow()-1; row <= 0; row--) {
-        int spacesCanMove = 0;
-        if (board.get(from.plus(row,0)) == null){
-          spacesCanMove--;
-          allowedMoves.add(new Move(from, from.plus(spacesCanMove, 0)));
-        }
-        else break;
+      // Move up
+      int spacesCanMoveUp = -1;
+      for (int row = from.getRow() - 1; row >= 0; row--) {
+        if (board.get(from.plus(row, 0)) == null) {
+          allowedMoves.add(new Move(from, from.plus(spacesCanMoveUp, 0)));
+          spacesCanMoveUp++;
+        } else break;
       }
-
     }
 
-  return allowedMoves;
+
+
+    return allowedMoves;
 
   }
 

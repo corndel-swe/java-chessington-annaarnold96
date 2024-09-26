@@ -19,4 +19,31 @@ public class MathsTests {
         assertEquals(25, result);
     }
 
+    @Test
+    public void returnsSameNumberWithWholeNumber(){
+        double a = 5;
+
+        double result = Maths.round(a);
+
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void roundsDown(){
+        double a = 1.3;
+
+        double result = Maths.round(a);
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void roundsUp(){
+        double a = 1.7;
+
+        double result = Maths.round(a);
+
+        assertEquals(2, result);
+    }
+
 }
