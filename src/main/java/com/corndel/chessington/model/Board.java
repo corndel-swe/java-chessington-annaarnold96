@@ -8,7 +8,8 @@ public class Board {
 
   private Piece[][] board = new Piece[BOARD_SIZE][BOARD_SIZE];
 
-  private Board() {}
+  private Board() {
+  }
 
   public static Board forNewGame() {
     Board board = new Board();
@@ -55,4 +56,22 @@ public class Board {
   public void placePiece(Coordinates coords, Piece piece) {
     board[coords.getRow()][coords.getCol()] = piece;
   }
+
+
+// ********************* ADDED BY ANNA *************************
+
+  // Checks if piece can move
+  public boolean isOnBoard(Coordinates from, Board board) {
+    return (from.getRow() >= 0 && from.getRow() <= 7) && (from.getCol() >= 0 && from.getCol() <= 7);
+  }
+  // Checks if current piece would move off the top/bottom board
+  public boolean wouldMoveOffBoardVertically(Coordinates from, Board board){
+    return (from.getRow() - 1 < 0) || (from.getRow() + 1 > 7);
+}
+
+  public boolean wouldMoveOffBoardHorizontally(Coordinates from, Board board, PlayerColour colour){
+    return (from.getCol() - 1 < 0) || ((from.getCol() + 1 > 7));
+
+  }
+
 }
